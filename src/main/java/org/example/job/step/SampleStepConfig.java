@@ -17,7 +17,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 public class SampleStepConfig {
 
-    private static final String STEP_NAME = "initializeTransactionLedgerStep";
+    public static final String STEP_NAME = "initializeTransactionLedgerStep";
 
     @JobScope
     @Bean(STEP_NAME)
