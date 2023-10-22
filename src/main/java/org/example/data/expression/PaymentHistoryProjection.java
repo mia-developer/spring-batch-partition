@@ -1,10 +1,10 @@
-package org.example.job.data.expression;
+package org.example.data.expression;
 
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.Getter;
-import org.example.job.data.entity.enums.PaymentGatewayType;
-import org.example.job.data.entity.BasePaymentGatewayHistoryEntity;
-import org.example.job.data.entity.PaymentHistoryEntity;
+import org.example.data.entity.enums.PaymentGatewayType;
+import org.example.data.entity.BasePaymentGatewayHistoryEntity;
+import org.example.data.entity.PaymentHistoryEntity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

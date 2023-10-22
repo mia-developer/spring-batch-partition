@@ -1,10 +1,10 @@
-package org.example.job.data.entity;
+package org.example.data.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.example.job.data.entity.enums.PaymentGatewayType;
+import org.example.data.entity.enums.PaymentGatewayType;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

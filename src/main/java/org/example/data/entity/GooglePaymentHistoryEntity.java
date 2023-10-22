@@ -1,4 +1,4 @@
-package org.example.job.data.entity;
+package org.example.data.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

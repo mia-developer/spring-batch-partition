@@ -1,7 +1,7 @@
 package org.example.job.step;
 
 import lombok.RequiredArgsConstructor;
-import org.example.job.data.entity.enums.PaymentGatewayType;
+import org.example.data.entity.enums.PaymentGatewayType;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.partition.support.Partitioner;
