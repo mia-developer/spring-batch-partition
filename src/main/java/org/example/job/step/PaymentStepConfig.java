@@ -1,5 +1,10 @@
 package org.example.job.step;
 
+import static org.example.data.entity.QApplePaymentHistoryEntity.applePaymentHistoryEntity;
+import static org.example.data.entity.QGooglePaymentHistoryEntity.googlePaymentHistoryEntity;
+import static org.example.data.entity.QPaymentHistoryEntity.paymentHistoryEntity;
+import static org.example.job.step.PaymentPartitionStepConfig.PAYMENT_GATEWAY;
+
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManagerFactory;
@@ -22,29 +27,26 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import static org.example.data.entity.QApplePaymentHistoryEntity.applePaymentHistoryEntity;
-import static org.example.data.entity.QGooglePaymentHistoryEntity.googlePaymentHistoryEntity;
-import static org.example.data.entity.QPaymentHistoryEntity.paymentHistoryEntity;
-import static org.example.job.step.SamplePartitionStepConfig.PAYMENT_GATEWAY;
-
 @Slf4j
 @RequiredArgsConstructor
 @Configuration
-public class SampleStepConfig {
+public class PaymentStepConfig {
 
-    public static final String STEP_NAME = "sampleStep";
+    public static final String STEP_NAME = "paymentStep";
     private static final Integer CHUNK_SIZE = 20;
     private final EntityManagerFactory entityManagerFactory;
 
     @JobScope
     @Bean(STEP_NAME)
-    public Step step(final JobRepository jobRepository, final PlatformTransactionManager transactionManager) {
+    public Step step(
+       final JobRepository jobRepository, final PlatformTransactionManager transactionManager) {
         return new StepBuilder(STEP_NAME, jobRepository)
-                .<PaymentHistoryProjection, PaymentHistoryProjection>chunk(CHUNK_SIZE, transactionManager)
-                .reader(reader())
-                .processor(processor())
-                .writer(writer())
-                .build();
+           .<PaymentHistoryProjection, PaymentHistoryProjection>chunk(CHUNK_SIZE,
+              transactionManager)
+           .reader(reader())
+           .processor(processor())
+           .writer(writer())
+           .build();
     }
 
     private ItemReader<PaymentHistoryProjection> reader(){

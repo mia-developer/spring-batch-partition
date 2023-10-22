@@ -1,5 +1,7 @@
 package org.example.job.step;
 
+import java.util.HashMap;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.example.data.entity.enums.PaymentGatewayType;
 import org.springframework.batch.core.Step;
@@ -11,26 +13,22 @@ import org.springframework.batch.item.ExecutionContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @RequiredArgsConstructor
 @Configuration
-public class SamplePartitionStepConfig {
+public class PaymentPartitionStepConfig {
 
-    public static final String STEP_NAME = "samplePartitionStep";
+    public static final String STEP_NAME = "paymentPartitionStep";
     public static final String PAYMENT_GATEWAY = "paymentGateway";
-    public static final String PAYMENT_DATE = "paymentDate";
 
-    private final Step sampleStep;
+    private final Step paymentStep;
 
     @JobScope
     @Bean(STEP_NAME)
     public Step step(final JobRepository jobRepository) {
         return new StepBuilder(STEP_NAME, jobRepository)
-                .partitioner(SampleStepConfig.STEP_NAME, partitioner())
-                .step(sampleStep)
-                .build();
+           .partitioner(PaymentStepConfig.STEP_NAME, partitioner())
+           .step(paymentStep)
+           .build();
     }
 
     public Partitioner partitioner() {

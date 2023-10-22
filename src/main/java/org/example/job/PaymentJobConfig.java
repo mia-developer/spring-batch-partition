@@ -10,15 +10,16 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class SampleJobConfig {
-    private static final String JOB_NAME = "sampleJob";
-    private final Step samplePartitionStep;
+public class PaymentJobConfig {
+
+    private static final String JOB_NAME = "paymentJob";
+    private final Step paymentPartitionStep;
 
     @Bean(JOB_NAME)
     public Job job(final JobRepository jobRepository) {
         return new JobBuilder(JOB_NAME, jobRepository)
-                .start(samplePartitionStep)
-                .build();
+           .start(paymentPartitionStep)
+           .build();
     }
 
 }

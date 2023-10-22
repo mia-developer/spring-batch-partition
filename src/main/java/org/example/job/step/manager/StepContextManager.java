@@ -1,11 +1,10 @@
 package org.example.job.step.manager;
 
+import java.util.Objects;
+import java.util.function.Function;
 import lombok.experimental.UtilityClass;
 import org.springframework.batch.core.scope.context.StepContext;
 import org.springframework.batch.core.scope.context.StepSynchronizationManager;
-
-import java.util.Objects;
-import java.util.function.Function;
 
 @UtilityClass
 public class StepContextManager {

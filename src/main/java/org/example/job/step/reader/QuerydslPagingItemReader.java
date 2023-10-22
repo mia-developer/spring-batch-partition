@@ -4,16 +4,15 @@ import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import org.springframework.batch.item.database.AbstractPagingItemReader;
-import org.springframework.dao.DataAccessResourceFailureException;
-import org.springframework.util.ClassUtils;
-import org.springframework.util.CollectionUtils;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Function;
+import org.springframework.batch.item.database.AbstractPagingItemReader;
+import org.springframework.dao.DataAccessResourceFailureException;
+import org.springframework.util.ClassUtils;
+import org.springframework.util.CollectionUtils;
 
 /**
  * QueryDsl Paging ItemReader.
@@ -24,13 +23,9 @@ import java.util.function.Function;
 public class QuerydslPagingItemReader<T> extends AbstractPagingItemReader<T> {
 
   protected final Map<String, Object> jpaPropertyMap = new HashMap<>();
-
   protected EntityManagerFactory entityManagerFactory;
-
   protected EntityManager entityManager;
-
   protected Function<JPAQueryFactory, JPAQuery<T>> queryFunction;
-
   protected boolean transacted = true;
 
   protected QuerydslPagingItemReader() {
