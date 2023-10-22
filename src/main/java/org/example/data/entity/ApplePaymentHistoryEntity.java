@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "apply_payment_history")
+@Table(name = "apple_payment_history")
 public class ApplePaymentHistoryEntity extends BasePaymentGatewayHistoryEntity {
 
     @Id
