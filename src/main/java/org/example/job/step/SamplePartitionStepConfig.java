@@ -1,7 +1,7 @@
 package org.example.job.step;
 
 import lombok.RequiredArgsConstructor;
-import org.example.job.model.enums.PaymentGatewayType;
+import org.example.job.data.entity.enums.PaymentGatewayType;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.partition.support.Partitioner;
@@ -16,10 +16,11 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @Configuration
-public class InitializeSamplePartitionStepConfig {
+public class SamplePartitionStepConfig {
 
-    public static final String STEP_NAME = "initializeSamplePartitionStep";
+    public static final String STEP_NAME = "samplePartitionStep";
     public static final String PAYMENT_GATEWAY = "paymentGateway";
+    public static final String PAYMENT_DATE = "paymentDate";
 
     private final Step sampleStep;
 

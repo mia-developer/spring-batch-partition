@@ -12,11 +12,13 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 public class SampleJobConfig {
     private static final String JOB_NAME = "sampleJob";
-    private final Step sampleStep;
+    private final Step samplePartitionStep;
 
     @Bean(JOB_NAME)
     public Job job(final JobRepository jobRepository) {
-        return new JobBuilder(JOB_NAME, jobRepository).start(sampleStep).build();
+        return new JobBuilder(JOB_NAME, jobRepository)
+                .start(samplePartitionStep)
+                .build();
     }
 
 }
