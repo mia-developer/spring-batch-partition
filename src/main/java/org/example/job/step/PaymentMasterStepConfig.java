@@ -15,19 +15,19 @@ import org.springframework.context.annotation.Configuration;
 
 @RequiredArgsConstructor
 @Configuration
-public class PaymentPartitionStepConfig {
+public class PaymentMasterStepConfig {
 
-    public static final String STEP_NAME = "paymentPartitionStep";
+    public static final String STEP_NAME = "paymentMasterStep";
     public static final String PAYMENT_GATEWAY = "paymentGateway";
 
-    private final Step paymentStep;
+    private final Step paymentSlaveStep;
 
     @JobScope
     @Bean(STEP_NAME)
     public Step step(final JobRepository jobRepository) {
         return new StepBuilder(STEP_NAME, jobRepository)
-           .partitioner(PaymentStepConfig.STEP_NAME, partitioner())
-           .step(paymentStep)
+           .partitioner(PaymentSlaveStepConfig.STEP_NAME, partitioner())
+           .step(paymentSlaveStep)
            .build();
     }
 

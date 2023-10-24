@@ -3,7 +3,7 @@ package org.example.job.step;
 import static org.example.data.entity.QApplePaymentHistoryEntity.applePaymentHistoryEntity;
 import static org.example.data.entity.QGooglePaymentHistoryEntity.googlePaymentHistoryEntity;
 import static org.example.data.entity.QPaymentHistoryEntity.paymentHistoryEntity;
-import static org.example.job.step.PaymentPartitionStepConfig.PAYMENT_GATEWAY;
+import static org.example.job.step.PaymentMasterStepConfig.PAYMENT_GATEWAY;
 
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -30,9 +30,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Slf4j
 @RequiredArgsConstructor
 @Configuration
-public class PaymentStepConfig {
+public class PaymentSlaveStepConfig {
 
-    public static final String STEP_NAME = "paymentStep";
+    public static final String STEP_NAME = "paymentSlaveStep";
     private static final Integer CHUNK_SIZE = 20;
     private final EntityManagerFactory entityManagerFactory;
 

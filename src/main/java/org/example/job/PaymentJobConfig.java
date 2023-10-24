@@ -13,12 +13,12 @@ import org.springframework.context.annotation.Configuration;
 public class PaymentJobConfig {
 
     private static final String JOB_NAME = "paymentJob";
-    private final Step paymentPartitionStep;
+    private final Step paymentMasterStep;
 
     @Bean(JOB_NAME)
     public Job job(final JobRepository jobRepository) {
         return new JobBuilder(JOB_NAME, jobRepository)
-           .start(paymentPartitionStep)
+           .start(paymentMasterStep)
            .build();
     }
 
